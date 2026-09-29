@@ -2,7 +2,7 @@
   "store.home": {
     "blocks": [
       "list-context.image-list#demo",
-      "benefits-banner",
+      
 
       /* You can make references to blocks defined in other files.
        * For example, `flex-layout.row#deals` is defined in the `deals.json` file. */
@@ -47,11 +47,7 @@
     }
   },
 
-  "benefits-banner": {
-  "props": {
-    
-  }
-},
+  
 
   "rich-text#shelf-title": {
     "props": {

@@ -1,12 +1,11 @@
 {
-  "name": "benefits-banner-app",
+  "name": "shipping-simulator",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
     "lint": "eslint --ext js,jsx,ts,tsx .",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json}\"",
-    "lint:locales": "intl-equalizer",
-    "test": "cd ./react && yarn test"
+    "lint:locales": "intl-equalizer"
   },
   "husky": {
     "hooks": {
@@ -21,15 +20,9 @@
     "*.{json,graphql,gql}": [
       "prettier --write"
     ],
-    "*.json": [
-      "prettier --write"
-    ],
     "messages/*.json": [
       "yarn lint:locales"
     ]
-  },
-  "dependencies": {
-    "vtex.device-detector": "http://vtex.vteximg.com.br/apps/vtex.device-detector@0.2.1/links/vtex.device-detector@0.2.1.tar.gz"
   },
   "devDependencies": {
     "@vtex/intl-equalizer": "^2.5.0",
@@ -39,11 +32,16 @@
     "eslint-config-vtex-react": "^6.8.3",
     "husky": "^4.3.0",
     "lint-staged": "^10.5.1",
+    "partnersigrowdev.shipping-simulator": "https://padteste--partnersigrowdev.myvtex.com/_v/private/typings/linked/v1/partnersigrowdev.shipping-simulator@0.1.0+build1790640196/public/_types/react",
     "prettier": "^2.2.0",
     "typescript": "^3.9.6",
-    "@vtex/danger": "^0.2.7"
+    "vtex.css-handles": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.css-handles@0.4.4/public/@types/vtex.css-handles",
+    "vtex.order-manager": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.order-manager@0.12.0/public/@types/vtex.order-manager",
+    "vtex.product-context": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-context@0.11.1/public/@types/vtex.product-context",
+    "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.136.3/public/@types/vtex.render-runtime",
+    "vtex.store-graphql": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-graphql@2.178.0/public/@types/vtex.store-graphql"
   },
-  "version": "0.0.0",
+  "version": "0.1.0",
   "intl-equalizer": {
     "referenceLocale": "en",
     "localeDirectory": "messages"
