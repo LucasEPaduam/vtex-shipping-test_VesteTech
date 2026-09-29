@@ -17,6 +17,7 @@
     "esModuleInterop": true,
     "noEmitOnError": false,
     "ignoreDeprecations": "6.0"
+   
   },
   "include": [
     "./typings/*.d.ts",

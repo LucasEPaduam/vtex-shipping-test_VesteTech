@@ -1,3 +1,12 @@
 {
-  "store/benefits-banner.sectionTitle": "¿Por qué comprar aquí?"
+  "store/shipping-simulator.title": "Simulador de Envío",
+  "store/shipping-simulator.input-placeholder": "00000-000",
+  "store/shipping-simulator.input-label": "Código postal para cálculo de envío",
+  "store/shipping-simulator.button-calculate": "Calcular",
+  "store/shipping-simulator.button-loading": "Calculando...",
+  "store/shipping-simulator.error": "Error al calcular el envío. Verifique el código postal e intente nuevamente.",
+  "store/shipping-simulator.no-options": "No hay opciones de envío disponibles para el código postal ingresado.",
+  "store/shipping-simulator.free": "Gratis",
+  "store/shipping-simulator.estimate-business-days": "hasta {quantity} {quantity, plural, =1 {día hábil} other {días hábiles}}",
+  "store/shipping-simulator.estimate-days": "hasta {quantity} {quantity, plural, =1 {día} other {días}}"
 }
