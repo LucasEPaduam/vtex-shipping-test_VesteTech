@@ -1,3 +1,12 @@
 {
-  "store/benefits-banner.sectionTitle": "Why shop with us?"
+  "store/shipping-simulator.title": "Shipping Simulator",
+  "store/shipping-simulator.input-placeholder": "00000-000",
+  "store/shipping-simulator.input-label": "ZIP code for shipping calculation",
+  "store/shipping-simulator.button-calculate": "Calculate",
+  "store/shipping-simulator.button-loading": "Calculating...",
+  "store/shipping-simulator.error": "Error calculating shipping. Please check the ZIP code and try again.",
+  "store/shipping-simulator.no-options": "No shipping options available for the provided ZIP code.",
+  "store/shipping-simulator.free": "Free",
+  "store/shipping-simulator.estimate-business-days": "up to {quantity} {quantity, plural, =1 {business day} other {business days}}",
+  "store/shipping-simulator.estimate-days": "up to {quantity} {quantity, plural, =1 {day} other {days}}"
 }

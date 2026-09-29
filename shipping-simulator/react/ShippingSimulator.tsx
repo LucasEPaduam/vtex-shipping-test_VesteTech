@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { useProduct } from 'vtex.product-context'
 import { useOrderForm } from 'vtex.order-manager/OrderForm'
+
 import styles from './styles.css'
+import { formatPostalCode, isValidPostalCode, sanitizePostalCode } from './utils/postalCode'
 
 interface DeliveryOption {
   id: string
@@ -17,23 +19,23 @@ const ShippingSimulator: React.FC = () => {
   const [postalCode, setPostalCode] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
+  const [searched, setSearched] = useState(false)
   const [deliveryOptions, setDeliveryOptions] = useState<DeliveryOption[]>([])
 
   const selectedItem = productContext?.selectedItem
 
-  // Helper para formatar a string de estimativa de entrega da VTEX (ex: "3bd" -> "em até 3 dias úteis")
   const formatShippingEstimate = (estimate: string) => {
     if (!estimate) return ''
     const hasBd = estimate.includes('bd')
     const hasD = estimate.includes('d') && !hasBd
-    const numbers = estimate.replace(/\D/g, '')
+    const numbers = Number(estimate.replace(/\D/g, '')) || 0
 
     if (hasBd) {
-      const isPlural = Number(numbers) > 1
+      const isPlural = numbers > 1
       return `em até ${numbers} ${isPlural ? 'dias úteis' : 'dia útil'}`
     }
     if (hasD) {
-      const isPlural = Number(numbers) > 1
+      const isPlural = numbers > 1
       return `em até ${numbers} ${isPlural ? 'dias' : 'dia'}`
     }
     return estimate
@@ -41,25 +43,26 @@ const ShippingSimulator: React.FC = () => {
 
   const handleCalculateShipping = async (e: React.FormEvent) => {
     e.preventDefault()
-    const cleanCep = postalCode.replace(/\D/g, '')
 
-    if (cleanCep.length !== 8) {
+    setDeliveryOptions([])
+    setSearched(false)
+
+    const cleanCep = sanitizePostalCode(postalCode)
+
+    if (!isValidPostalCode(cleanCep)) {
       setError(true)
       return
     }
 
     setLoading(true)
     setError(false)
-    setDeliveryOptions([])
 
-    // 1. Obter itens do carrinho atual (orderForm) garantindo que as quantidades sejam números
     const cartItems = (orderForm?.items || []).map((item: any) => ({
       id: String(item.id),
       quantity: Number(item.quantity) || 1,
       seller: String(item.seller || '1'),
     }))
 
-    // 2. Mesclar com o SKU atual da PDP
     const simulationItems = [...cartItems]
     if (selectedItem) {
       const existingIndex = simulationItems.findIndex(
@@ -77,7 +80,6 @@ const ShippingSimulator: React.FC = () => {
     }
 
     try {
-      // 3. Chamada REST para a API nativa de simulação da VTEX
       const response = await fetch('/api/checkout/pub/orderForms/simulation', {
         method: 'POST',
         headers: {
@@ -97,7 +99,6 @@ const ShippingSimulator: React.FC = () => {
 
       const data = await response.json()
 
-      // 4. Mapear os SLAs (Service Level Agreements) de entrega retornados
       const slas: DeliveryOption[] = []
       if (data?.logisticsInfo) {
         data.logisticsInfo.forEach((itemLogistics: any) => {
@@ -115,6 +116,7 @@ const ShippingSimulator: React.FC = () => {
       }
 
       setDeliveryOptions(slas)
+      setSearched(true)
     } catch (err) {
       console.error('Erro na simulação de frete REST:', err)
       setError(true)
@@ -136,10 +138,13 @@ const ShippingSimulator: React.FC = () => {
         <input
           id="cep-input"
           type="text"
-          placeholder="Digite seu CEP"
+          placeholder="00000-000"
           maxLength={9}
           value={postalCode}
-          onChange={(e) => setPostalCode(e.target.value)}
+          onChange={(e) => {
+            setPostalCode(formatPostalCode(sanitizePostalCode(e.target.value)))
+            if (error) setError(false)
+          }}
           className={styles.input}
           aria-label="CEP para cálculo de frete"
         />
@@ -160,7 +165,13 @@ const ShippingSimulator: React.FC = () => {
           </p>
         )}
 
-        {deliveryOptions.length > 0 && (
+        {!error && searched && deliveryOptions.length === 0 && (
+          <p className={styles.error} role="alert">
+            Nenhuma opção de frete disponível para o CEP informado.
+          </p>
+        )}
+
+        {!error && deliveryOptions.length > 0 && (
           <ul className={styles.list} aria-label="Opções de frete disponíveis">
             {deliveryOptions.map((option) => (
               <li key={option.id} className={styles.listItem}>
