@@ -1,0 +1,11 @@
+query Shipping($items: [ShippingItem], $postalCode: String, $country: String) {
+  shipping(items: $items, postalCode: $postalCode, country: $country) {
+    deliveryOptions {
+      id
+      name
+      price
+      estimate
+      isSelected
+    }
+  }
+}
