@@ -22,7 +22,7 @@ interface BlackFridayBannerProps {
 }
 
 const BlackFridayBanner: React.FC<BlackFridayBannerProps> = ({
-  title = 'BLACK FRIDAY IMPERDÍVEL',
+  title = 'BLACK FRIDAY IMPERDÍVEL UAU!',
   subtitle = 'Aproveite os maiores descontos do ano antes que o tempo acabe!',
   targetDate = '2026-11-27T00:00:00',
   buttonText = 'GARANTIR OFERTAS',
@@ -88,7 +88,7 @@ const BlackFridayBanner: React.FC<BlackFridayBannerProps> = ({
     title: {
       title: 'Título do Banner',
       type: 'string',
-      default: 'BLACK FRIDAY IMPERDÍVEL',
+      default: 'BLACK FRIDAY IMPERDÍVEL UAU!',
     },
     subtitle: {
       title: 'Subtítulo',

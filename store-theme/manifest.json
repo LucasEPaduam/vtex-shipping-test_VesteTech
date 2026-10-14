@@ -63,7 +63,8 @@
     "vtex.tab-layout": "0.x",
     "vtex.condition-layout": "2.x",
     "vtex.css-handles": "1.x",
-    "partnersigrowdev.shipping-simulator": "0.x"
+    "partnersigrowdev.shipping-simulator": "0.x",
+    "partnersigrowdev.black-friday-banner": "0.x"
   },
   "peerDependencies": {},
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
