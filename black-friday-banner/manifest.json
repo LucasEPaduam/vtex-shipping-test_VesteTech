@@ -1,0 +1,17 @@
+{
+  "vendor": "partnersigrowdev",
+  "name": "black-friday-banner",
+  "version": "0.1.0",
+  "title": "Black Friday Banner & Countdown",
+  "description": "Landing page banner com contador regressivo e botão CTA customizável",
+  "builders": {
+    "react": "3.x",
+    "store": "0.x"
+  },
+  "dependencies": {
+    "vtex.styleguide": "9.x",
+    "vtex.css-handles": "0.x",
+    "vtex.render-runtime": "8.x"
+  },
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
+}

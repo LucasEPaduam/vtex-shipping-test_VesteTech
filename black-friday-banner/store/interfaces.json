@@ -1,0 +1,10 @@
+{
+   "black-friday-banner": {
+    "component": "BlackFridayBanner",
+    "title": "Black Friday Banner & Countdown",
+    "description": "Banner com contador regressivo e botão CTA customizável"
+  }
+}
+
+
+  
