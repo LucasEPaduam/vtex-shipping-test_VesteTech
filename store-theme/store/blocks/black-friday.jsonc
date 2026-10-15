@@ -1,0 +1,89 @@
+{
+  "store.custom#black-friday": {
+    "blocks": [
+      "rich-text#bf-main-title",
+      "flex-layout.row#bf-intro",
+      "rich-text#bf-shelf-title",
+      "flex-layout.row#bf-shelf"
+    ]
+  },
+
+  /* Título Principal da Landing Page */
+  "rich-text#bf-main-title": {
+    "props": {
+      "text": "# BLACK FRIDAY VESTE\n## Ofertas imperdíveis com descontos exclusivos",
+      "textAlignment": "CENTER",
+      "textPosition": "CENTER",
+      "blockClass": "bf-main-title"
+    }
+  },
+
+  /* Seção de Introdução / Termos */
+  "flex-layout.row#bf-intro": {
+    "children": [
+      "rich-text#bf-intro-text"
+    ],
+    "props": {
+      "marginTop": 6,
+      "marginBottom": 6,
+      "paddingTop": 4,
+      "paddingBottom": 4,
+      "blockClass": "bf-intro-container"
+    }
+  },
+
+  "rich-text#bf-intro-text": {
+    "props": {
+      "text": "Aproveite os maiores descontos do ano antes que o tempo acabe. Estoque limitado e condições especiais de frete em todo o site!",
+      "textAlignment": "CENTER",
+      "textPosition": "CENTER",
+      "blockClass": "bf-intro-text"
+    }
+  },
+
+  /* Título da Vitrine de Produtos */
+  "rich-text#bf-shelf-title": {
+    "props": {
+      "text": "### ⚡ Produtos em Destaque",
+      "textAlignment": "CENTER",
+      "textPosition": "CENTER",
+      "blockClass": "bf-shelf-title"
+    }
+  },
+
+  /* Container da Vitrine */
+  "flex-layout.row#bf-shelf": {
+    "children": [
+      "list-context.product-list#bf-products"
+    ],
+    "props": {
+      "marginBottom": 8,
+      "blockClass": "bf-shelf-container"
+    }
+  },
+
+  "list-context.product-list#bf-products": {
+    "blocks": [
+      "product-summary.shelf"
+    ],
+    "children": [
+      "slider-layout#bf-products-slider"
+    ],
+    "props": {
+      "orderBy": "OrderByTopSaleDESC"
+    }
+  },
+
+  "slider-layout#bf-products-slider": {
+    "props": {
+      "itemsPerPage": {
+        "desktop": 4,
+        "tablet": 2,
+        "phone": 1
+      },
+      "infinite": true,
+      "showNavigationArrows": "desktopOnly",
+      "blockClass": "bf-products-slider"
+    }
+  }
+}

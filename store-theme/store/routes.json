@@ -7,5 +7,10 @@
   },
   "store.custom#contact-us": {
     "path": "/contact-us"
+  },
+  
+  "store.custom#black-friday": {
+    "path": "/black-friday"
   }
+
 }
