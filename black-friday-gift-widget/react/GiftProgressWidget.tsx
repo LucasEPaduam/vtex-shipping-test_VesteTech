@@ -3,7 +3,7 @@ import { useQuery } from 'react-apollo'
 import GET_GIFT_PROGRESS from './graphql/getGiftProgress.graphql'
 
 const GiftProgressWidget: React.FC = () => {
-  const { data, loading, error } = useQuery(GET_GIFT_PROGRESS)
+  const { data, loading, error } = useQuery(GET_GIFT_PROGRESS, { ssr: false })
 
   if (loading) {
     return (

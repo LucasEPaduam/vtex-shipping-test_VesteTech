@@ -1,4 +1,4 @@
-query GetGiftProgress {
+query GetGiftProgress @context(provider: "partnersigrowdev.black-friday-gift-widget") {
   getBlackFridayGiftProgress {
     currentCartTotal
     targetGoal
