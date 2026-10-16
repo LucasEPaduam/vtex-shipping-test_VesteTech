@@ -1,0 +1,10 @@
+query GetGiftProgress {
+  getBlackFridayGiftProgress {
+    currentCartTotal
+    targetGoal
+    remainingAmount
+    progressPercentage
+    hasUnlockedGift
+    giftName
+  }
+}
