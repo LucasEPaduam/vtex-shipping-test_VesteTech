@@ -2,6 +2,7 @@
   "store.custom#black-friday": {
     "blocks": [
       "rich-text#bf-main-title",
+      "gift-progress-widget",
       "flex-layout.row#bf-intro",
       "rich-text#bf-shelf-title",
       "flex-layout.row#bf-shelf"
