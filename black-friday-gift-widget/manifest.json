@@ -6,13 +6,12 @@
   "description": "Widget de progresso de brinde para alavancar ticket médio na Black Friday",
   "builders": {
     "react": "3.x",
-    "node": "6.x",
-    "graphql": "2.x",
     "store": "0.x"
   },
   "dependencies": {
     "vtex.checkout-resources": "0.x",
-    "vtex.styleguide": "9.x"
+    "vtex.styleguide": "9.x",
+    "vtex.checkout-graphql": "0.x"
   },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

@@ -2,8 +2,17 @@ import React from 'react'
 import { useQuery } from 'react-apollo'
 import GET_GIFT_PROGRESS from './graphql/getGiftProgress.graphql'
 
+interface GiftProgressQueryData {
+  orderForm?: {
+    value?: number | null
+  } | null
+}
+
 const GiftProgressWidget: React.FC = () => {
-  const { data, loading, error } = useQuery(GET_GIFT_PROGRESS, { ssr: false })
+  const { data, loading, error } = useQuery<GiftProgressQueryData>(
+    GET_GIFT_PROGRESS,
+    { ssr: false, pollInterval: 3000 }
+  )
 
   if (loading) {
     return (
@@ -13,16 +22,25 @@ const GiftProgressWidget: React.FC = () => {
     )
   }
 
-  if (error || !data?.getBlackFridayGiftProgress) {
-    return null
+  if (error || !data?.orderForm) {
+    console.error('Erro ao carregar o progresso do brinde:', error)
+
+    return (
+      <div role="alert" style={{ padding: '20px', textAlign: 'center' }}>
+        Não foi possível carregar o progresso do brinde. Tente novamente mais tarde.
+      </div>
+    )
   }
 
-  const {
-    remainingAmount,
-    progressPercentage,
-    hasUnlockedGift,
-    giftName,
-  } = data.getBlackFridayGiftProgress
+  const targetGoal = 500
+  const currentCartTotal = Number(data.orderForm.value ?? 0) / 100
+  const remainingAmount = Math.max(0, targetGoal - currentCartTotal)
+  const hasUnlockedGift = currentCartTotal >= targetGoal  
+  const progressPercentage = hasUnlockedGift
+    ? 100
+    : Math.min(99, Math.floor((currentCartTotal / targetGoal) * 100))
+  
+  const giftName = 'Bag Exclusiva Veste Black Friday'
 
   return (
     <div

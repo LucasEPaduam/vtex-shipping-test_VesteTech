@@ -1,10 +1,5 @@
-query GetGiftProgress @context(provider: "partnersigrowdev.black-friday-gift-widget") {
-  getBlackFridayGiftProgress {
-    currentCartTotal
-    targetGoal
-    remainingAmount
-    progressPercentage
-    hasUnlockedGift
-    giftName
+query GetBlackFridayGiftProgress {
+  orderForm @context(provider: "vtex.checkout-graphql") {
+    value
   }
 }
