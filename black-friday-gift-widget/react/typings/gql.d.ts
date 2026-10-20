@@ -1,5 +1,6 @@
 declare module '*.graphql' {
   import { DocumentNode } from 'graphql'
-  const value: DocumentNode
-  export default value
+
+  const document: DocumentNode
+  export default document
 }
