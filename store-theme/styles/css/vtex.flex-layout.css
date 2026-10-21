@@ -51,6 +51,15 @@
   font-size: 14px;
 }
 
+.flexRowContent--quickFiltersRow {
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 12px 0;
+  background-color: #ffffff;
+  justify-content: center;
+  gap: 36px;
+}
+
 .flexRow--deals {
   background-color: #0f3e99;
   padding: 14px 0px;

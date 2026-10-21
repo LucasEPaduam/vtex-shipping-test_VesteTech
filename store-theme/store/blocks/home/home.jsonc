@@ -6,8 +6,10 @@
 
       /* You can make references to blocks defined in other files.
        * For example, `flex-layout.row#deals` is defined in the `deals.json` file. */
-     "flex-layout.row#deals",
+     "flex-layout.row#quick-filters",
      "black-friday-banner",
+     
+     "flex-layout.row#deals",
       "__fold__",
       "rich-text#shelf-title",
       "flex-layout.row#shelf",
@@ -104,5 +106,60 @@
       "text": "\n**Reach us at**\nwww.vtex.com.br",
       "blockClass": "link"
     }
+  },
+
+  "flex-layout.row#quick-filters": {
+  "props": {
+    "blockClass": "quickFiltersRow",
+    "horizontalAlign": "center",
+    "verticalAlign": "center",
+    "preventHorizontalStretch": true,
+    "fullWidth": true
+  },
+  "children": [
+    "rich-text#filter-category",
+    "rich-text#filter-subcategory",
+    "rich-text#filter-color",
+    "rich-text#filter-material",
+    "rich-text#filter-size",
+    "rich-text#filter-price"
+  ]
+},
+
+"rich-text#filter-category": {
+  "props": {
+    "text": "CATEGORIA ∨",
+    "blockClass": "quickFilterItem"
   }
+},
+"rich-text#filter-subcategory": {
+  "props": {
+    "text": "SUBCATEGORIA ∨",
+    "blockClass": "quickFilterItem"
+  }
+},
+"rich-text#filter-color": {
+  "props": {
+    "text": "COR ∨",
+    "blockClass": "quickFilterItem"
+  }
+},
+"rich-text#filter-material": {
+  "props": {
+    "text": "MATERIAL ∨",
+    "blockClass": "quickFilterItem"
+  }
+},
+"rich-text#filter-size": {
+  "props": {
+    "text": "TAMANHO ∨",
+    "blockClass": "quickFilterItem"
+  }
+},
+"rich-text#filter-price": {
+  "props": {
+    "text": "FAIXAS DE PREÇO ∨",
+    "blockClass": "quickFilterItem"
+  }
+}
 }
