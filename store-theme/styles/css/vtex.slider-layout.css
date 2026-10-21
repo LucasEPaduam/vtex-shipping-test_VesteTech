@@ -1,3 +1,22 @@
+.sliderLayoutContainer--mainBannerCarousel {
+  padding: 0;
+  max-width: 100%;
+}
+
+.sliderTrackContainer--mainBannerCarousel {
+  max-width: 100%;
+}
+
+.caretIcon--mainBannerCarousel {
+  color: #ffffff;
+  width: 18px;
+  height: 18px;
+}
+
+.paginationDotsContainer--mainBannerCarousel {
+  bottom: 12px;
+}
+
 .sliderLayoutContainer {
   justify-content: center;
 }
