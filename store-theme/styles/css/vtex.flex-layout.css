@@ -18,12 +18,21 @@
 }
 
 .flexRowContent--menu-link {
+  display: none !important;
   background-color: #03044e;
   color: #fff;
 }
 
 .flexRowContent--main-header {
   background-color: #f0f0f0;
+}
+
+.flexRowContent--main-header-custom {
+  padding: 12px 24px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f0f0f0;
+  align-items: center;
+  box-sizing: border-box;
 }
 
 .flexRowContent--main-header-mobile {

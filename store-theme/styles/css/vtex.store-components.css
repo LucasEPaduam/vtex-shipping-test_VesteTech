@@ -1,9 +1,26 @@
+:global(.vtex-flex-layout-0-x-flexRow--topbar-promo) {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 6px 0;
+}
+
+.topbarPromoText {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #111111;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+
 .notificationBarContainer {
   background-color: #e6f1e6;
   color: #03034e;
   font-weight: 700;
   font-size: 12px;
   text-decoration: underline;
+  display: none;
 }
 
 .infoCardContainer--info-card-home {
